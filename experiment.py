@@ -515,10 +515,10 @@ parts = ax2.violinplot(
         showextrema=True)
 i = 0
 for pc in parts['bodies']:
-    pc.set_facecolor(colors[i])
+    pc.set_facecolor('cyan')
     pc.set_edgecolor('black')
     i = i + 1
-    pc.set_alpha(0.6)
+    # pc.set_alpha(0.6)
 
 quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
 whiskers = np.array([
@@ -548,7 +548,7 @@ parts = ax2.violinplot(
         showextrema=True)
 
 for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
+    pc.set_facecolor('sienna')
     pc.set_edgecolor('black')
     # pc.set_alpha(1)
 
@@ -621,7 +621,7 @@ parts = ax2.violinplot(
         showextrema=True)
 
 for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
+    pc.set_facecolor('sienna')
     pc.set_edgecolor('black')
     # pc.set_alpha(1)
 
@@ -693,7 +693,7 @@ parts = ax2.violinplot(
         showextrema=True)
 
 for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
+    pc.set_facecolor('sienna')
     pc.set_edgecolor('black')
     # pc.set_alpha(1)
 
@@ -763,7 +763,7 @@ parts = ax2.violinplot(
         showextrema=True)
 
 for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
+    pc.set_facecolor('sienna')
     pc.set_edgecolor('black')
     # pc.set_alpha(1)
 
@@ -892,6 +892,16 @@ print(stats.ttest_ind(bic_data[2][18:36], bic_data[2][54:72]),'\n')
 print(stats.ttest_ind(bic_data[3][0:18], bic_data[3][36:54]))
 print(stats.ttest_ind(bic_data[3][18:36], bic_data[3][54:72]),'\n')
 
+print('overall')
+# 0.1
+print(stats.ttest_ind(np.array(bic_data[0][0:18])+np.array(bic_data[0][18:36]), np.array(bic_data[0][36:54])+np.array(bic_data[0][54:72])))
+# 0.2
+print(stats.ttest_ind(np.array(bic_data[1][0:18])+np.array(bic_data[1][18:36]), np.array(bic_data[1][36:54])+np.array(bic_data[1][54:72])))
+# 0.3
+print(stats.ttest_ind(np.array(bic_data[2][0:18])+np.array(bic_data[2][18:36]), np.array(bic_data[2][36:54])+np.array(bic_data[2][54:72])))
+# 0.4
+print(stats.ttest_ind(np.array(bic_data[3][0:18])+np.array(bic_data[3][18:36]), np.array(bic_data[3][36:54])+np.array(bic_data[3][54:72])))
+
 
 
 
@@ -972,8 +982,8 @@ plt.plot(x, original_bic_data[1][0], 'rs-', linewidth=4, markersize=16) #, label
 plt.plot(x, original_bic_data[1][4], 'go-', linewidth=4, markersize=16) #, label='Manual Planning Results')
 # ax.fill_between(x,original_bic_data[1][0], 0, alpha=0.4, linewidth=0, color='sandybrown')
 # ax.fill_between(x, original_bic_data[1][0], original_bic_data[1][4], alpha=0.4, linewidth=0, color='deepskyblue')
-plt.xticks(range(1, 19, 2), fontsize=24, weight='bold')
-plt.yticks(fontsize=24, weight='bold')
+plt.xticks(range(1, 19, 2), fontsize=32, weight='bold')
+plt.yticks(fontsize=32, weight='bold')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Original BIC', fontsize=32, fontweight='bold')
 ax.set_xlabel('Case No.', fontsize=32, fontweight='bold')
