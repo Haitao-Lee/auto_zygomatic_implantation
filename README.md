@@ -34,7 +34,7 @@ Fig.4 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 
 -- conda create zygo_implant_planning
 
--- pip install open3d=
+-- pip install open3d
 
 -- pip install vtk
 
