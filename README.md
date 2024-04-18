@@ -36,7 +36,7 @@ Fig.5 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 
 -- conda create --name zygo_implant_planning python=3.9
 
--- conda create zygo_implant_planning
+-- conda activate zygo_implant_planning
 
 -- pip install open3d
 
