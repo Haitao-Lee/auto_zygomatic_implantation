@@ -30,7 +30,7 @@ Fig.5 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 
 
 # Config
-**The project can be reproduced on window 11 with the following command:**
+**The project can be reproduced on window 11 with the following commands:**
 
 -- git clone  https://github.com/Haitao-Lee/auto_zygomatic_implantation.git
 
