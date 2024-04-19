@@ -354,18 +354,28 @@ plt.rcParams['font.size'] = 40
 # #首先有图（fig），然后有轴（ax）
 # fig,axes=plt.subplots(nrows=1,ncols=1)
 
+# plot_data = [all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]]
+
 # # 绘制箱线图
-# bplot = axes.boxplot([all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]], widths=0.4, positions=positions, patch_artist=True, showmeans=True)
+# bplot = axes.boxplot(plot_data, widths=0.4, positions=positions, meanprops={'marker':'D', 'markerfacecolor':'r', 'color':'r', 'markersize':10}, patch_artist=True, capprops={'linewidth': 2}, showmeans=True, showfliers=True, showbox=True, medianprops=dict(color='black', linestyle='--', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
 
 # # 设置箱子的颜色
-# colors = ['pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# colors = ['deepskyblue', 'gray', 'deepskyblue', 'gray','deepskyblue', 'gray','deepskyblue', 'gray','pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
 # for patch, color in zip(bplot['boxes'], colors):
 #     patch.set_facecolor(color)
+#     patch.set_alpha(0.6)
+    
+# # for i, d in enumerate(plot_data):
+# #     y = np.random.normal(positions[i], 0.06, size=len(d))
+# #     axes.scatter(y, d, alpha=0.6, color=colors[i%2],linewidths=0, zorder=1, s=200)
+
 
 # axes.yaxis.grid(True) #在y轴上添加网格线
 # axes.set_xticks([1.25, 2.75, 4.25, 5.75]) #指定x轴的轴刻度个数
 # axes.set_xticklabels(['d$_{%s}$ (mm)'%1, 'd$_{%s}$ (mm)'%2, 'd$_{%s}$ (mm)'%3, 'd$_{%s}$ (mm)'%4], fontsize=40, fontweight='bold') #设置刻度标签
-
+# axes.axvline(2,  linestyle='--', color='black')
+# axes.axvline(3.5,  linestyle='--', color='black')
+# axes.axvline(5,  linestyle='--', color='black')
 # # 添加图例
 # # fig.legend(bplot1["boxes"], ['our automatic planning results', 'manual planning results'], loc="lower center", bbox_to_anchor=(-0.5, -0.1), ncol=2)
 
@@ -388,17 +398,28 @@ plt.rcParams['font.size'] = 40
 # #首先有图（fig），然后有轴（ax）
 # fig,axes=plt.subplots(nrows=1,ncols=1)
 
+# plot_data = [all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]]
+
 # # 绘制箱线图
-# bplot = axes.boxplot([all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]], widths=0.4, positions=positions, patch_artist=True, showmeans=True)
+# bplot = axes.boxplot(plot_data, widths=0.4, positions=positions, meanprops={'marker':'D', 'markerfacecolor':'r', 'color':'r', 'markersize':10}, patch_artist=True, capprops={'linewidth': 2}, showmeans=True, showfliers=True, showbox=True, medianprops=dict(color='black', linestyle='--', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
 
 # # 设置箱子的颜色
-# colors = ['pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# colors = ['deepskyblue', 'gray', 'deepskyblue', 'gray','deepskyblue', 'gray','deepskyblue', 'gray','pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
 # for patch, color in zip(bplot['boxes'], colors):
 #     patch.set_facecolor(color)
+#     patch.set_alpha(0.6)
+    
+# # for i, d in enumerate(plot_data):
+# #     y = np.random.normal(positions[i], 0.06, size=len(d))
+# #     axes.scatter(y, d, alpha=0.6, color=colors[i%2],linewidths=0, zorder=1, s=200)
+
 
 # axes.yaxis.grid(True) #在y轴上添加网格线
 # axes.set_xticks([1.25, 2.75, 4.25, 5.75]) #指定x轴的轴刻度个数
 # axes.set_xticklabels(['d$_{%s}$ (mm)'%1, 'd$_{%s}$ (mm)'%2, 'd$_{%s}$ (mm)'%3, 'd$_{%s}$ (mm)'%4], fontsize=40, fontweight='bold') #设置刻度标签
+# axes.axvline(2,  linestyle='--', color='black')
+# axes.axvline(3.5,  linestyle='--', color='black')
+# axes.axvline(5,  linestyle='--', color='black')
 
 # # 添加图例
 # # fig.legend(bplot1["boxes"], ['our automatic planning results', 'manual planning results'], loc="lower center", bbox_to_anchor=(-0.5, -0.1), ncol=2)
@@ -422,17 +443,28 @@ plt.rcParams['font.size'] = 40
 # #首先有图（fig），然后有轴（ax）
 # fig,axes=plt.subplots(nrows=1,ncols=1)
 
+# plot_data = [all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]]
+
 # # 绘制箱线图
-# bplot = axes.boxplot([all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]], widths=0.4, positions=positions, patch_artist=True, showmeans=True)
+# bplot = axes.boxplot(plot_data, widths=0.4, positions=positions, meanprops={'marker':'D', 'markerfacecolor':'r', 'color':'r', 'markersize':10}, patch_artist=True, capprops={'linewidth': 2}, showmeans=True, showfliers=True, showbox=True, medianprops=dict(color='black', linestyle='--', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
 
 # # 设置箱子的颜色
-# colors = ['pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# colors = ['deepskyblue', 'gray', 'deepskyblue', 'gray','deepskyblue', 'gray','deepskyblue', 'gray','pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
 # for patch, color in zip(bplot['boxes'], colors):
 #     patch.set_facecolor(color)
+#     patch.set_alpha(0.6)
+    
+# # for i, d in enumerate(plot_data):
+# #     y = np.random.normal(positions[i], 0.06, size=len(d))
+# #     axes.scatter(y, d, alpha=0.6, color=colors[i%2],linewidths=0, zorder=1, s=200)
+
 
 # axes.yaxis.grid(True) #在y轴上添加网格线
 # axes.set_xticks([1.25, 2.75, 4.25, 5.75]) #指定x轴的轴刻度个数
 # axes.set_xticklabels(['d$_{%s}$ (mm)'%1, 'd$_{%s}$ (mm)'%2, 'd$_{%s}$ (mm)'%3, 'd$_{%s}$ (mm)'%4], fontsize=40, fontweight='bold') #设置刻度标签
+# axes.axvline(2,  linestyle='--', color='black')
+# axes.axvline(3.5,  linestyle='--', color='black')
+# axes.axvline(5,  linestyle='--', color='black')
 
 # # 添加图例
 # # fig.legend(bplot1["boxes"], ['our automatic planning results', 'manual planning results'], loc="lower center", bbox_to_anchor=(-0.5, -0.1), ncol=2)
@@ -456,17 +488,28 @@ plt.rcParams['font.size'] = 40
 # #首先有图（fig），然后有轴（ax）
 # fig,axes=plt.subplots(nrows=1,ncols=1)
 
+# plot_data = [all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]]
+
 # # 绘制箱线图
-# bplot = axes.boxplot([all_data[0], all_data[4], all_data[1], all_data[5], all_data[2], all_data[6], all_data[3], all_data[7]], widths=0.4, positions=positions, patch_artist=True, showmeans=True)
+# bplot = axes.boxplot(plot_data, widths=0.4, positions=positions, meanprops={'marker':'D', 'markerfacecolor':'r', 'color':'r', 'markersize':10}, patch_artist=True, capprops={'linewidth': 2}, showmeans=True, showfliers=True, showbox=True, medianprops=dict(color='black', linestyle='--', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
 
 # # 设置箱子的颜色
-# colors = ['pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# colors = ['deepskyblue', 'gray', 'deepskyblue', 'gray','deepskyblue', 'gray','deepskyblue', 'gray','pink', 'lightblue', 'pink', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
 # for patch, color in zip(bplot['boxes'], colors):
 #     patch.set_facecolor(color)
+#     patch.set_alpha(0.6)
+    
+# # for i, d in enumerate(plot_data):
+# #     y = np.random.normal(positions[i], 0.06, size=len(d))
+# #     axes.scatter(y, d, alpha=0.6, color=colors[i%2],linewidths=0, zorder=1, s=200)
+
 
 # axes.yaxis.grid(True) #在y轴上添加网格线
 # axes.set_xticks([1.25, 2.75, 4.25, 5.75]) #指定x轴的轴刻度个数
 # axes.set_xticklabels(['d$_{%s}$ (mm)'%1, 'd$_{%s}$ (mm)'%2, 'd$_{%s}$ (mm)'%3, 'd$_{%s}$ (mm)'%4], fontsize=40, fontweight='bold') #设置刻度标签
+# axes.axvline(2,  linestyle='--', color='black')
+# axes.axvline(3.5,  linestyle='--', color='black')
+# axes.axvline(5,  linestyle='--', color='black')
 
 # # 添加图例
 # # fig.legend(bplot1["boxes"], ['our automatic planning results', 'manual planning results'], loc="lower center", bbox_to_anchor=(-0.5, -0.1), ncol=2)
@@ -505,33 +548,82 @@ data = [[1.184713376,1.5,0.935897436,1.072072072,1.618181818,1.121621622,1.19277
         [1.779661017,1.454545455,1.084507042,1.29245283,1.430379747,1.970588235,1.263888889,1.135135135,1.318681319,1.3625,1.11965812,1.311111111,1.1,1.764150943,1.701754386,1.875,1.30952381,1.510638298],
         ]
 
+
 colors = ['cyan', 'olive', 'deeppink','sienna']
+
+
+
 
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
+positions = [1, 2, 3, 4]
+
+# bplot = ax2.boxplot(data, widths=0.8, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
+
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
+
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.15, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i], linewidths=0, zorder=1, s=300)
+
+
+ax2.vlines(0.6, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.4, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.6, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.4, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.6, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.4, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.6, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(4.4, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(3, ymin=np.min(np.array(data[2])),  ymax=np.max(np.array(data[2])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(4, ymin=np.min(np.array(data[3])),  ymax=np.max(np.array(data[3])), linestyle='-', linewidth=1, color='black')
+
+ax2.hlines(max(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.6, 1.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.6, 2.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[2])), 2.6, 3.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[3])), 3.6, 4.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines([1], 0, 5, color='r', linestyle='--', lw=2)
+# ax2.axvline(1.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[0]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(2.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[2]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(3.5, ymin=0,  ymax=max(np.median(np.array(data[2])), np.median(np.array(data[3]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(4.5, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+# bplot = axes.boxplot(data, widths=0.4, positions=positions, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=True, showfliers=False, showbox=True, medianprops=dict(color='black', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
+ax2.set_ylim(0, 2.5)
 ax2.set_title('$\\varepsilon_r$ = 0.1', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        data, showmeans=True, showmedians=False,
-        showextrema=True)
-i = 0
-for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
-    pc.set_edgecolor('black')
-    i = i + 1
+# parts = ax2.violinplot(
+#         data, showmeans=True, showmedians=False,
+#         showextrema=True)
+# i = 0
+# for pc in parts['bodies']:
+#     pc.set_facecolor('cyan')
+#     pc.set_edgecolor('black')
+#     i = i + 1
     # pc.set_alpha(0.6)
 
-quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+# quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
+# whiskers = np.array([
+#     adjacent_values(sorted_array, q1, q3)
+#     for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
+# whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([1], 0, 5, color='r', linestyle='dotted', lw=2)
-
+# inds = np.arange(1, len(medians) + 1)
+# ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
+# ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
+# ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
 # set style for the axes
 labels = ['BIC1', 'BIC2', 'BIC3', 'BIC4']
 
@@ -540,29 +632,40 @@ set_axis_style(ax2, labels)
 plt.subplots_adjust(bottom=0.15, wspace=0.05)
 plt.show()
 
+
+
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.1', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], showmeans=True, showmedians=False,
-        showextrema=True)
 
-for pc in parts['bodies']:
-    pc.set_facecolor('sienna')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+positions = [1, 2]
+data = [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])]
+# bplot = ax2.boxplot(data, widths=0.4, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+ax2.vlines(0.8, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.2, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.8, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.2, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.set_ylim(0, 4)
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'deepskyblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([2], 0, 3, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.08, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i+4], linewidths=0, zorder=1, s=300)
+
+ax2.hlines(max(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines([2], 0, 5, color='r', linestyle='--', lw=2)
 
 # set style for the axes
 labels = ['BIC1+BIC2', 'BIC3+BIC4']
@@ -584,26 +687,72 @@ data = [[1.120743034,1.383458647,1.006756757,1.177339901,1.989130435,0.909722222
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.2', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        data, showmeans=True, showmedians=False,
-        showextrema=True)
+positions = [1, 2, 3, 4]
 
-for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+# bplot = ax2.boxplot(data, widths=0.8, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([1], 0, 5, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.15, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i], linewidths=0, zorder=1, s=300)
+
+
+ax2.vlines(0.6, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.4, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.6, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.4, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.6, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.4, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.6, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(4.4, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(3, ymin=np.min(np.array(data[2])),  ymax=np.max(np.array(data[2])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(4, ymin=np.min(np.array(data[3])),  ymax=np.max(np.array(data[3])), linestyle='-', linewidth=1, color='black')
+ax2.hlines(max(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.6, 1.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.6, 2.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[2])), 2.6, 3.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[3])), 3.6, 4.4, linestyle='-', linewidth=2, color='black')
+# ax2.axvline(1.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[0]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(2.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[2]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(3.5, ymin=0,  ymax=max(np.median(np.array(data[2])), np.median(np.array(data[3]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(4.5, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+# bplot = axes.boxplot(data, widths=0.4, positions=positions, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=True, showfliers=False, showbox=True, medianprops=dict(color='black', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
+ax2.set_ylim(0, 2.5)
+# parts = ax2.violinplot(
+#         data, showmeans=True, showmedians=False,
+#         showextrema=True)
+# i = 0
+# for pc in parts['bodies']:
+#     pc.set_facecolor('cyan')
+#     pc.set_edgecolor('black')
+#     i = i + 1
+    # pc.set_alpha(0.6)
+
+# quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
+# whiskers = np.array([
+#     adjacent_values(sorted_array, q1, q3)
+#     for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
+# whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+
+# inds = np.arange(1, len(medians) + 1)
+# ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
+# ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
+# ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
+ax2.hlines([1], 0, 5, color='r', linestyle='--', lw=2)
 
 # set style for the axes
 labels = ['BIC1', 'BIC2', 'BIC3', 'BIC4']
@@ -616,26 +765,36 @@ plt.show()
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.2', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], showmeans=True, showmedians=False,
-        showextrema=True)
 
-for pc in parts['bodies']:
-    pc.set_facecolor('sienna')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+positions = [1, 2]
+data = [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])]
+# bplot = ax2.boxplot(data, widths=0.4, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+ax2.vlines(0.8, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.2, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.8, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.2, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.set_ylim(0, 4)
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'deepskyblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([2], 0, 3, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.08, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i+4], linewidths=0, zorder=1, s=300)
+
+ax2.hlines(max(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines([2], 0, 5, color='r', linestyle='--', lw=2)
+
 
 # set style for the axes
 labels = ['BIC1+BIC2', 'BIC3+BIC4']
@@ -644,6 +803,7 @@ set_axis_style(ax2, labels)
 
 plt.subplots_adjust(bottom=0.15, wspace=0.05)
 plt.show()
+
 
 
 
@@ -656,26 +816,72 @@ data = [[1.137931034,1.425414365,1.042056075,1.252631579,2.067669173,0.960591133
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.3', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        data, showmeans=True, showmedians=False,
-        showextrema=True)
+positions = [1, 2, 3, 4]
 
-for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+# bplot = ax2.boxplot(data, widths=0.8, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([1], 0, 5, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.15, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i], linewidths=0, zorder=1, s=300)
+
+
+ax2.vlines(0.6, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.4, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.6, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.4, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.6, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.4, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.6, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(4.4, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(3, ymin=np.min(np.array(data[2])),  ymax=np.max(np.array(data[2])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(4, ymin=np.min(np.array(data[3])),  ymax=np.max(np.array(data[3])), linestyle='-', linewidth=1, color='black')
+ax2.hlines(max(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.6, 1.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.6, 2.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[2])), 2.6, 3.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[3])), 3.6, 4.4, linestyle='-', linewidth=2, color='black')
+# ax2.axvline(1.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[0]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(2.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[2]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(3.5, ymin=0,  ymax=max(np.median(np.array(data[2])), np.median(np.array(data[3]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(4.5, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+# bplot = axes.boxplot(data, widths=0.4, positions=positions, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=True, showfliers=False, showbox=True, medianprops=dict(color='black', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
+ax2.set_ylim(0, 2.5)
+# parts = ax2.violinplot(
+#         data, showmeans=True, showmedians=False,
+#         showextrema=True)
+# i = 0
+# for pc in parts['bodies']:
+#     pc.set_facecolor('cyan')
+#     pc.set_edgecolor('black')
+#     i = i + 1
+    # pc.set_alpha(0.6)
+
+# quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
+# whiskers = np.array([
+#     adjacent_values(sorted_array, q1, q3)
+#     for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
+# whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+
+# inds = np.arange(1, len(medians) + 1)
+# ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
+# ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
+# ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
+ax2.hlines([1], 0, 5, color='r', linestyle='--', lw=2)
 
 # set style for the axes
 labels = ['BIC1', 'BIC2', 'BIC3', 'BIC4']
@@ -688,26 +894,36 @@ plt.show()
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.3', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], showmeans=True, showmedians=False,
-        showextrema=True)
 
-for pc in parts['bodies']:
-    pc.set_facecolor('sienna')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+positions = [1, 2]
+data = [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])]
+# bplot = ax2.boxplot(data, widths=0.4, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+ax2.vlines(0.8, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.2, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.8, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.2, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.set_ylim(0, 4)
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'deepskyblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([2], 0, 3, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.08, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i+4], linewidths=0, zorder=1, s=300)
+
+ax2.hlines(max(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines([2], 0, 5, color='r', linestyle='--', lw=2)
+
 
 # set style for the axes
 labels = ['BIC1+BIC2', 'BIC3+BIC4']
@@ -726,26 +942,72 @@ data = [[1.166123779,1.299610895,0.985765125,1.204663212,1.844559585,0.953571429
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.4', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        data, showmeans=True, showmedians=False,
-        showextrema=True)
+positions = [1, 2, 3, 4]
 
-for pc in parts['bodies']:
-    pc.set_facecolor('cyan')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+# bplot = ax2.boxplot(data, widths=0.8, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'lightblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([1], 0, 5, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.15, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i], linewidths=0, zorder=1, s=300)
+
+
+ax2.vlines(0.6, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.4, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.6, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.4, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.6, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.4, ymin=0,  ymax=np.median(np.array(data[2])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(3.6, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(4.4, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(3, ymin=np.min(np.array(data[2])),  ymax=np.max(np.array(data[2])), linestyle='-', linewidth=1, color='black')
+ax2.vlines(4, ymin=np.min(np.array(data[3])),  ymax=np.max(np.array(data[3])), linestyle='-', linewidth=1, color='black')
+ax2.hlines(max(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[2])), 2.8, 3.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[3])), 3.8, 4.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.6, 1.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.6, 2.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[2])), 2.6, 3.4, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[3])), 3.6, 4.4, linestyle='-', linewidth=2, color='black')
+# ax2.axvline(1.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[0]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(2.4, ymin=0,  ymax=max(np.median(np.array(data[1])), np.median(np.array(data[2]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(3.5, ymin=0,  ymax=max(np.median(np.array(data[2])), np.median(np.array(data[3]))), linestyle='-', linewidth=2, color='black')
+# ax2.axvline(4.5, ymin=0,  ymax=np.median(np.array(data[3])), linestyle='-', linewidth=2, color='black')
+# bplot = axes.boxplot(data, widths=0.4, positions=positions, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=True, showfliers=False, showbox=True, medianprops=dict(color='black', linewidth=2), boxprops={'linewidth': 2, 'linestyle': '-'})
+ax2.set_ylim(0, 2.5)
+# parts = ax2.violinplot(
+#         data, showmeans=True, showmedians=False,
+#         showextrema=True)
+# i = 0
+# for pc in parts['bodies']:
+#     pc.set_facecolor('cyan')
+#     pc.set_edgecolor('black')
+#     i = i + 1
+    # pc.set_alpha(0.6)
+
+# quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
+# whiskers = np.array([
+#     adjacent_values(sorted_array, q1, q3)
+#     for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
+# whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+
+# inds = np.arange(1, len(medians) + 1)
+# ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
+# ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
+# ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
+ax2.hlines([1], 0, 5, color='r', linestyle='--', lw=2)
 
 # set style for the axes
 labels = ['BIC1', 'BIC2', 'BIC3', 'BIC4']
@@ -758,26 +1020,36 @@ plt.show()
 fig, (ax2) = plt.subplots(nrows=1, ncols=1, figsize=(4, 4), sharey=True)
 
 ax2.set_title('$\\varepsilon_r$ = 0.4', fontsize=48, fontweight='bold')
-parts = ax2.violinplot(
-        [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], showmeans=True, showmedians=False,
-        showextrema=True)
 
-for pc in parts['bodies']:
-    pc.set_facecolor('sienna')
-    pc.set_edgecolor('black')
-    # pc.set_alpha(1)
+positions = [1, 2]
+data = [np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])]
+# bplot = ax2.boxplot(data, widths=0.4, positions=positions, showbox=False, meanprops=dict(markerfacecolor='r', color='r', markersize = 16), patch_artist=False, capprops={'linewidth': 2}, showmeans=False, showfliers=False, medianprops=dict(color='black', linewidth=2), boxprops=None)
 
-quartile1, medians, quartile3 = np.percentile([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], [25, 50, 75], axis=1)
-whiskers = np.array([
-    adjacent_values(sorted_array, q1, q3)
-    for sorted_array, q1, q3 in zip([np.array(data[0])+np.array(data[1]), np.array(data[2])+np.array(data[3])], quartile1, quartile3)])
-whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
+ax2.vlines(0.8, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.2, ymin=0,  ymax=np.median(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1.8, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2.2, ymin=0,  ymax=np.median(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(1, ymin=np.min(np.array(data[0])),  ymax=np.max(np.array(data[0])), linestyle='-', linewidth=2, color='black')
+ax2.vlines(2, ymin=np.min(np.array(data[1])),  ymax=np.max(np.array(data[1])), linestyle='-', linewidth=2, color='black')
+ax2.set_ylim(0, 4)
+# 设置箱子的颜色
+colors = ['teal', 'chocolate', 'purple', 'red', 'crimson', 'deepskyblue', 'pink', 'lightblue']# , 'lightgreen', '#E0B0FF']
+# for patch, color in zip(bplot['boxes'], colors):
+#     patch.set_facecolor(color)
 
-inds = np.arange(1, len(medians) + 1)
-ax2.scatter(inds, medians, marker='o', color='white', s=30, zorder=3)
-ax2.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-ax2.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
-ax2.hlines([2], 0, 3, color='r', linestyle='dotted', lw=2)
+markers = ['o', 'D', 's', '^']
+for i, d in enumerate(data):
+    y = np.random.normal(positions[i], 0.08, size=len(d))
+    ax2.scatter(y, d, alpha=0.9, marker=markers[i], color=colors[i+4], linewidths=0, zorder=1, s=300)
+
+ax2.hlines(max(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[0])), 0.9, 1.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(max(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(min(np.array(data[1])), 1.9, 2.1, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[0])), 0.8, 1.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines(np.median(np.array(data[1])), 1.8, 2.2, linestyle='-', linewidth=2, color='black')
+ax2.hlines([2], 0, 5, color='r', linestyle='--', lw=2)
+
 
 # set style for the axes
 labels = ['BIC1+BIC2', 'BIC3+BIC4']
@@ -786,6 +1058,7 @@ set_axis_style(ax2, labels)
 
 plt.subplots_adjust(bottom=0.15, wspace=0.05)
 plt.show()
+
 
 #### variation
 # 设置全局字体为 Times New Roman，加粗，20 号字体
@@ -872,9 +1145,172 @@ axes[1].plot([1,2,3,4], [np.average(bic_data[0]), np.average(bic_data[1]), np.av
 axes[1].errorbar([1,2,3,4], [np.average(bic_data[0]), np.average(bic_data[1]), np.average(bic_data[2]), np.average(bic_data[3])], yerr=[np.std(bic_data[0]),np.std(bic_data[1]),np.std(bic_data[2]), np.std(bic_data[3])], fmt='o', color='blue', ecolor='red', linewidth=2, capsize=10)
 axes[1].set_xticks([1,2,3,4], labels=['$\\varepsilon_r$ = 0.1', '$\\varepsilon_r$ = 0.2', '$\\varepsilon_r$ = 0.3', '$\\varepsilon_r$ = 0.4'])
 axes[1].set_ylim(0.4, 2)
-# axes[1].set_title('General BIC with different $\\varepsilon_r$', fontsize=32, fontweight='bold')
-
+# axes[1].set_title('General BIC with different $\\varepsilon_r$', fontsize=32, fontweight='bold')4
 plt.show()
+
+
+# Libraries
+import matplotlib.pyplot as plt
+import pandas as pd
+from math import pi
+
+# Set data
+# 设定数据
+df = pd.DataFrame({
+    'group': ['$\\varepsilon_r$ = 0.1', '$\\varepsilon_r$ = 0.2', '$\\varepsilon_r$ = 0.3', '$\\varepsilon_r$ = 0.4'],
+    'case1': [np.average(np.array([dis_data[0][0], dis_data[0][18], dis_data[0][36], dis_data[0][54]])), np.average(np.array([dis_data[1][0], dis_data[1][18], dis_data[1][36], dis_data[1][54]])), np.average(np.array([dis_data[2][0], dis_data[2][18], dis_data[2][36], dis_data[2][54]])), np.average(np.array([dis_data[3][0], dis_data[3][18], dis_data[3][36], dis_data[3][54]]))],
+    'case2': [np.average(np.array([dis_data[0][1], dis_data[0][19], dis_data[0][37], dis_data[0][55]])), np.average(np.array([dis_data[1][1], dis_data[1][19], dis_data[1][37], dis_data[1][55]])), np.average(np.array([dis_data[2][1], dis_data[2][19], dis_data[2][37], dis_data[2][55]])), np.average(np.array([dis_data[3][1], dis_data[3][19], dis_data[3][37], dis_data[3][55]]))],
+    'case3': [np.average(np.array([dis_data[0][2], dis_data[0][20], dis_data[0][38], dis_data[0][56]])), np.average(np.array([dis_data[1][2], dis_data[1][20], dis_data[1][38], dis_data[1][56]])), np.average(np.array([dis_data[2][2], dis_data[2][20], dis_data[2][38], dis_data[2][56]])), np.average(np.array([dis_data[3][2], dis_data[3][20], dis_data[3][38], dis_data[3][56]]))],
+    'case4': [np.average(np.array([dis_data[0][3], dis_data[0][21], dis_data[0][39], dis_data[0][57]])), np.average(np.array([dis_data[1][3], dis_data[1][21], dis_data[1][39], dis_data[1][57]])), np.average(np.array([dis_data[2][3], dis_data[2][21], dis_data[2][39], dis_data[2][57]])), np.average(np.array([dis_data[3][3], dis_data[3][21], dis_data[3][39], dis_data[3][57]]))],
+    'case5': [np.average(np.array([dis_data[0][4], dis_data[0][22], dis_data[0][40], dis_data[0][58]])), np.average(np.array([dis_data[1][4], dis_data[1][22], dis_data[1][40], dis_data[1][58]])), np.average(np.array([dis_data[2][4], dis_data[2][22], dis_data[2][40], dis_data[2][58]])), np.average(np.array([dis_data[3][4], dis_data[3][22], dis_data[3][40], dis_data[3][58]]))],
+    'case6': [np.average(np.array([dis_data[0][5], dis_data[0][23], dis_data[0][41], dis_data[0][59]])), np.average(np.array([dis_data[1][5], dis_data[1][23], dis_data[1][41], dis_data[1][59]])), np.average(np.array([dis_data[2][5], dis_data[2][23], dis_data[2][41], dis_data[2][59]])), np.average(np.array([dis_data[3][5], dis_data[3][23], dis_data[3][41], dis_data[3][59]]))],
+    'case7': [np.average(np.array([dis_data[0][6], dis_data[0][24], dis_data[0][42], dis_data[0][60]])), np.average(np.array([dis_data[1][6], dis_data[1][24], dis_data[1][42], dis_data[1][60]])), np.average(np.array([dis_data[2][6], dis_data[2][24], dis_data[2][42], dis_data[2][60]])), np.average(np.array([dis_data[3][6], dis_data[3][24], dis_data[3][42], dis_data[3][60]]))],
+    'case8': [np.average(np.array([dis_data[0][7], dis_data[0][25], dis_data[0][43], dis_data[0][61]])), np.average(np.array([dis_data[1][7], dis_data[1][25], dis_data[1][43], dis_data[1][61]])), np.average(np.array([dis_data[2][7], dis_data[2][25], dis_data[2][43], dis_data[2][61]])), np.average(np.array([dis_data[3][7], dis_data[3][25], dis_data[3][43], dis_data[3][61]]))],
+    'case9': [np.average(np.array([dis_data[0][8], dis_data[0][26], dis_data[0][44], dis_data[0][62]])), np.average(np.array([dis_data[1][8], dis_data[1][26], dis_data[1][44], dis_data[1][62]])), np.average(np.array([dis_data[2][8], dis_data[2][26], dis_data[2][44], dis_data[2][62]])), np.average(np.array([dis_data[3][8], dis_data[3][26], dis_data[3][44], dis_data[3][62]]))],
+    'case10': [np.average(np.array([dis_data[0][9], dis_data[0][27], dis_data[0][45], dis_data[0][63]])), np.average(np.array([dis_data[1][9], dis_data[1][27], dis_data[1][45], dis_data[1][63]])), np.average(np.array([dis_data[2][9], dis_data[2][27], dis_data[2][45], dis_data[2][63]])), np.average(np.array([dis_data[3][9], dis_data[3][27], dis_data[3][45], dis_data[3][63]]))],
+    'case11': [np.average(np.array([dis_data[0][10], dis_data[0][28], dis_data[0][46], dis_data[0][64]])), np.average(np.array([dis_data[1][10], dis_data[1][28], dis_data[1][46], dis_data[1][64]])), np.average(np.array([dis_data[2][10], dis_data[2][28], dis_data[2][46], dis_data[2][64]])), np.average(np.array([dis_data[3][10], dis_data[3][28], dis_data[3][46], dis_data[3][64]]))],
+    'case12': [np.average(np.array([dis_data[0][11], dis_data[0][29], dis_data[0][47], dis_data[0][65]])), np.average(np.array([dis_data[1][11], dis_data[1][29], dis_data[1][47], dis_data[1][65]])), np.average(np.array([dis_data[2][11], dis_data[2][29], dis_data[2][47], dis_data[2][65]])), np.average(np.array([dis_data[3][11], dis_data[3][29], dis_data[3][47], dis_data[3][65]]))],
+    'case13': [np.average(np.array([dis_data[0][12], dis_data[0][30], dis_data[0][48], dis_data[0][66]])), np.average(np.array([dis_data[1][12], dis_data[1][30], dis_data[1][48], dis_data[1][66]])), np.average(np.array([dis_data[2][12], dis_data[2][30], dis_data[2][48], dis_data[2][66]])), np.average(np.array([dis_data[3][12], dis_data[3][30], dis_data[3][48], dis_data[3][66]]))],
+    'case14': [np.average(np.array([dis_data[0][13], dis_data[0][31], dis_data[0][49], dis_data[0][67]])), np.average(np.array([dis_data[1][13], dis_data[1][31], dis_data[1][49], dis_data[1][67]])), np.average(np.array([dis_data[2][13], dis_data[2][31], dis_data[2][49], dis_data[2][67]])), np.average(np.array([dis_data[3][13], dis_data[3][31], dis_data[3][49], dis_data[3][67]]))],
+    'case15': [np.average(np.array([dis_data[0][14], dis_data[0][32], dis_data[0][50], dis_data[0][68]])), np.average(np.array([dis_data[1][14], dis_data[1][32], dis_data[1][50], dis_data[1][68]])), np.average(np.array([dis_data[2][14], dis_data[2][32], dis_data[2][50], dis_data[2][68]])), np.average(np.array([dis_data[3][14], dis_data[3][32], dis_data[3][50], dis_data[3][68]]))],
+    'case16': [np.average(np.array([dis_data[0][15], dis_data[0][33], dis_data[0][51], dis_data[0][69]])), np.average(np.array([dis_data[1][15], dis_data[1][33], dis_data[1][51], dis_data[1][69]])), np.average(np.array([dis_data[2][15], dis_data[2][33], dis_data[2][51], dis_data[2][69]])), np.average(np.array([dis_data[3][15], dis_data[3][33], dis_data[3][51], dis_data[3][69]]))],
+    'case17': [np.average(np.array([dis_data[0][16], dis_data[0][34], dis_data[0][52], dis_data[0][71]])), np.average(np.array([dis_data[1][16], dis_data[1][34], dis_data[1][52], dis_data[1][70]])), np.average(np.array([dis_data[2][16], dis_data[2][34], dis_data[2][52], dis_data[2][70]])), np.average(np.array([dis_data[3][16], dis_data[3][34], dis_data[3][52], dis_data[3][70]]))],
+    'case18': [np.average(np.array([dis_data[0][17], dis_data[0][35], dis_data[0][53], dis_data[0][71]])), np.average(np.array([dis_data[1][17], dis_data[1][35], dis_data[1][53], dis_data[1][71]])), np.average(np.array([dis_data[2][17], dis_data[2][35], dis_data[2][53], dis_data[2][71]])), np.average(np.array([dis_data[3][17], dis_data[3][35], dis_data[3][53], dis_data[3][71]]))],
+
+})
+
+# number of variable
+# 变量类别
+categories = list(df)[1:]
+# 变量类别个数
+N = len(categories)
+
+# 设置每个点的角度值
+angles = [n / float(N) * 2 * pi for n in range(N)]
+angles += angles[:1]
+
+# Initialise the spider plot
+# 初始化极坐标网格
+ax = plt.subplot(111, polar=True)
+
+# Draw one axe per variable + add labels labels yet
+# 设置x轴的标签
+plt.xticks(angles[:-1], categories, color='grey', fontsize=20, fontweight='bold')
+
+
+ax.set_rlabel_position(0)
+# 设置y轴的标签
+plt.yticks([3, 6, 9], ["3", "6", "9"], color="grey",  fontsize=20, fontweight='bold')
+plt.ylim(0, 12)
+
+# Plot data
+# 画图
+# plot the first line of the data frame.
+# 绘制数据的第一行
+values = df.loc[0].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.1')
+ax.fill(angles, values, 'purple', alpha=0.1)
+
+values = df.loc[1].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.2')
+ax.fill(angles, values, 'b', alpha=0.1)
+
+values = df.loc[2].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.3')
+ax.fill(angles, values, 'g', alpha=0.1)
+
+values = df.loc[3].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.4')
+ax.fill(angles, values, 'saddlebrown', alpha=0.1)
+plt.legend(loc='upper right')
+plt.show()
+
+df = pd.DataFrame({
+    'group': ['$\\varepsilon_r$ = 0.1', '$\\varepsilon_r$ = 0.2', '$\\varepsilon_r$ = 0.3', '$\\varepsilon_r$ = 0.4'],
+    'case1': [np.average(np.array([bic_data[0][0], bic_data[0][18], bic_data[0][36], bic_data[0][54]])), np.average(np.array([bic_data[1][0], bic_data[1][18], bic_data[1][36], bic_data[1][54]])), np.average(np.array([bic_data[2][0], bic_data[2][18], bic_data[2][36], bic_data[2][54]])), np.average(np.array([bic_data[3][0], bic_data[3][18], bic_data[3][36], bic_data[3][54]]))],
+    'case2': [np.average(np.array([bic_data[0][1], bic_data[0][19], bic_data[0][37], bic_data[0][55]])), np.average(np.array([bic_data[1][1], bic_data[1][19], bic_data[1][37], bic_data[1][55]])), np.average(np.array([bic_data[2][1], bic_data[2][19], bic_data[2][37], bic_data[2][55]])), np.average(np.array([bic_data[3][1], bic_data[3][19], bic_data[3][37], bic_data[3][55]]))],
+    'case3': [np.average(np.array([bic_data[0][2], bic_data[0][20], bic_data[0][38], bic_data[0][56]])), np.average(np.array([bic_data[1][2], bic_data[1][20], bic_data[1][38], bic_data[1][56]])), np.average(np.array([bic_data[2][2], bic_data[2][20], bic_data[2][38], bic_data[2][56]])), np.average(np.array([bic_data[3][2], bic_data[3][20], bic_data[3][38], bic_data[3][56]]))],
+    'case4': [np.average(np.array([bic_data[0][3], bic_data[0][21], bic_data[0][39], bic_data[0][57]])), np.average(np.array([bic_data[1][3], bic_data[1][21], bic_data[1][39], bic_data[1][57]])), np.average(np.array([bic_data[2][3], bic_data[2][21], bic_data[2][39], bic_data[2][57]])), np.average(np.array([bic_data[3][3], bic_data[3][21], bic_data[3][39], bic_data[3][57]]))],
+    'case5': [np.average(np.array([bic_data[0][4], bic_data[0][22], bic_data[0][40], bic_data[0][58]])), np.average(np.array([bic_data[1][4], bic_data[1][22], bic_data[1][40], bic_data[1][58]])), np.average(np.array([bic_data[2][4], bic_data[2][22], bic_data[2][40], bic_data[2][58]])), np.average(np.array([bic_data[3][4], bic_data[3][22], bic_data[3][40], bic_data[3][58]]))],
+    'case6': [np.average(np.array([bic_data[0][5], bic_data[0][23], bic_data[0][41], bic_data[0][59]])), np.average(np.array([bic_data[1][5], bic_data[1][23], bic_data[1][41], bic_data[1][59]])), np.average(np.array([bic_data[2][5], bic_data[2][23], bic_data[2][41], bic_data[2][59]])), np.average(np.array([bic_data[3][5], bic_data[3][23], bic_data[3][41], bic_data[3][59]]))],
+    'case7': [np.average(np.array([bic_data[0][6], bic_data[0][24], bic_data[0][42], bic_data[0][60]])), np.average(np.array([bic_data[1][6], bic_data[1][24], bic_data[1][42], bic_data[1][60]])), np.average(np.array([bic_data[2][6], bic_data[2][24], bic_data[2][42], bic_data[2][60]])), np.average(np.array([bic_data[3][6], bic_data[3][24], bic_data[3][42], bic_data[3][60]]))],
+    'case8': [np.average(np.array([bic_data[0][7], bic_data[0][25], bic_data[0][43], bic_data[0][61]])), np.average(np.array([bic_data[1][7], bic_data[1][25], bic_data[1][43], bic_data[1][61]])), np.average(np.array([bic_data[2][7], bic_data[2][25], bic_data[2][43], bic_data[2][61]])), np.average(np.array([bic_data[3][7], bic_data[3][25], bic_data[3][43], bic_data[3][61]]))],
+    'case9': [np.average(np.array([bic_data[0][8], bic_data[0][26], bic_data[0][44], bic_data[0][62]])), np.average(np.array([bic_data[1][8], bic_data[1][26], bic_data[1][44], bic_data[1][62]])), np.average(np.array([bic_data[2][8], bic_data[2][26], bic_data[2][44], bic_data[2][62]])), np.average(np.array([bic_data[3][8], bic_data[3][26], bic_data[3][44], bic_data[3][62]]))],
+    'case10': [np.average(np.array([bic_data[0][9], bic_data[0][27], bic_data[0][45], bic_data[0][63]])), np.average(np.array([bic_data[1][9], bic_data[1][27], bic_data[1][45], bic_data[1][63]])), np.average(np.array([bic_data[2][9], bic_data[2][27], bic_data[2][45], bic_data[2][63]])), np.average(np.array([bic_data[3][9], bic_data[3][27], bic_data[3][45], bic_data[3][63]]))],
+    'case11': [np.average(np.array([bic_data[0][10], bic_data[0][28], bic_data[0][46], bic_data[0][64]])), np.average(np.array([bic_data[1][10], bic_data[1][28], bic_data[1][46], bic_data[1][64]])), np.average(np.array([bic_data[2][10], bic_data[2][28], bic_data[2][46], bic_data[2][64]])), np.average(np.array([bic_data[3][10], bic_data[3][28], bic_data[3][46], bic_data[3][64]]))],
+    'case12': [np.average(np.array([bic_data[0][11], bic_data[0][29], bic_data[0][47], bic_data[0][65]])), np.average(np.array([bic_data[1][11], bic_data[1][29], bic_data[1][47], bic_data[1][65]])), np.average(np.array([bic_data[2][11], bic_data[2][29], bic_data[2][47], bic_data[2][65]])), np.average(np.array([bic_data[3][11], bic_data[3][29], bic_data[3][47], bic_data[3][65]]))],
+    'case13': [np.average(np.array([bic_data[0][12], bic_data[0][30], bic_data[0][48], bic_data[0][66]])), np.average(np.array([bic_data[1][12], bic_data[1][30], bic_data[1][48], bic_data[1][66]])), np.average(np.array([bic_data[2][12], bic_data[2][30], bic_data[2][48], bic_data[2][66]])), np.average(np.array([bic_data[3][12], bic_data[3][30], bic_data[3][48], bic_data[3][66]]))],
+    'case14': [np.average(np.array([bic_data[0][13], bic_data[0][31], bic_data[0][49], bic_data[0][67]])), np.average(np.array([bic_data[1][13], bic_data[1][31], bic_data[1][49], bic_data[1][67]])), np.average(np.array([bic_data[2][13], bic_data[2][31], bic_data[2][49], bic_data[2][67]])), np.average(np.array([bic_data[3][13], bic_data[3][31], bic_data[3][49], bic_data[3][67]]))],
+    'case15': [np.average(np.array([bic_data[0][14], bic_data[0][32], bic_data[0][50], bic_data[0][68]])), np.average(np.array([bic_data[1][14], bic_data[1][32], bic_data[1][50], bic_data[1][68]])), np.average(np.array([bic_data[2][14], bic_data[2][32], bic_data[2][50], bic_data[2][68]])), np.average(np.array([bic_data[3][14], bic_data[3][32], bic_data[3][50], bic_data[3][68]]))],
+    'case16': [np.average(np.array([bic_data[0][15], bic_data[0][33], bic_data[0][51], bic_data[0][69]])), np.average(np.array([bic_data[1][15], bic_data[1][33], bic_data[1][51], bic_data[1][69]])), np.average(np.array([bic_data[2][15], bic_data[2][33], bic_data[2][51], bic_data[2][69]])), np.average(np.array([bic_data[3][15], bic_data[3][33], bic_data[3][51], bic_data[3][69]]))],
+    'case17': [np.average(np.array([bic_data[0][16], bic_data[0][34], bic_data[0][52], bic_data[0][71]])), np.average(np.array([bic_data[1][16], bic_data[1][34], bic_data[1][52], bic_data[1][70]])), np.average(np.array([bic_data[2][16], bic_data[2][34], bic_data[2][52], bic_data[2][70]])), np.average(np.array([bic_data[3][16], bic_data[3][34], bic_data[3][52], bic_data[3][70]]))],
+    'case18': [np.average(np.array([bic_data[0][17], bic_data[0][35], bic_data[0][53], bic_data[0][71]])), np.average(np.array([bic_data[1][17], bic_data[1][35], bic_data[1][53], bic_data[1][71]])), np.average(np.array([bic_data[2][17], bic_data[2][35], bic_data[2][53], bic_data[2][71]])), np.average(np.array([bic_data[3][17], bic_data[3][35], bic_data[3][53], bic_data[3][71]]))],
+
+})
+
+# number of variable
+# 变量类别
+categories = list(df)[1:]
+# 变量类别个数
+N = len(categories)
+
+# 设置每个点的角度值
+angles = [n / float(N) * 2 * pi for n in range(N)]
+angles += angles[:1]
+
+# Initialise the spider plot
+# 初始化极坐标网格
+ax = plt.subplot(111, polar=True)
+
+# Draw one axe per variable + add labels labels yet
+# 设置x轴的标签
+plt.xticks(angles[:-1], categories, color='grey',fontsize=20, fontweight='bold')
+
+
+ax.set_rlabel_position(0)
+# 设置y轴的标签
+plt.yticks([0, 1, 2], ["0", "1", "2"], color="grey",  fontsize=20, fontweight='bold')
+plt.ylim(0, 2)
+
+# Plot data
+# 画图
+# plot the first line of the data frame.
+# 绘制数据的第一行
+values = df.loc[0].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.1')
+ax.fill(angles, values, 'purple', alpha=0.1)
+
+values = df.loc[1].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.2')
+ax.fill(angles, values, 'b', alpha=0.1)
+
+values = df.loc[2].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.3')
+ax.fill(angles, values, 'g', alpha=0.1)
+
+values = df.loc[3].drop('group').values.flatten().tolist()
+# 将第一个值放到最后，以封闭图形
+values += values[:1]
+ax.plot(angles, values, linewidth=2, linestyle='solid', label='$\\varepsilon_r$ = 0.4')
+ax.fill(angles, values, 'saddlebrown', alpha=0.1)
+# plt.legend(loc='upper right')
+plt.show()
+
+
 
 
 from scipy import stats
