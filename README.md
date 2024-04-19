@@ -1,4 +1,4 @@
-# Zygoplanner: an efficient zygomatic implantation planning framework
+# ZygoPlanner: an efficient zygomatic implantation planning framework
 
 
 ![Fig.1 The overview of our pipeline comprises three stages: (a) automatic zygomatic bone positioning through shape-prior-knowledge-based multi-planar cutting. (b) Generation of partitioned alternative trajectories guided by extracting dense 'backlit' points. (c) Utilization of a BIC-maximized algorithm to determine the optimal implanted paths.](https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/overview.png)
@@ -67,5 +67,5 @@ x3 y3 z3
 x4 y4 z4
 
 # Citing
-If you use Zygoplanner in your research, please consider giving proper attribution by citing the following publication:
+If you use ZygoPlanner in your research, please consider giving proper attribution by citing the following publication:
 xxxxxxxxx
