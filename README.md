@@ -54,6 +54,8 @@ Fig.5 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 
 -- pip install random2
 
+-- pip install pandas
+
 **Then open 'main.py', set the 'stl_folder' in function *zygomatic_implant_planning* to the directory that only contains the STL of the patient's skull. Set the 'point_folder' in function *zygomatic_implant_planning* to the directory that only contains the txt file that stores the implantation points. The txt file is written in the following format:**
 
 x1 y1 z1
