@@ -6,7 +6,7 @@ import numpy as np
 # 不清楚为何直接用相对路径读不出来
 cwd = os.path.dirname(os.path.abspath(__file__)).replace('\\', '/')
 
-data_name = 'yangyayi' # 'xufeng' # 'songjun' # 'majun' # 'luweilan' # 'luoqiu' # 'liuyanhua' # 'linqianhong' # 'lichanghua' # 'majun' # 'yangfan'# 'fengwenwei' # 'chengjie' # 'xujun' # 'yujinfeng' # 'hesufang' # 'liuyanhua' # 'dujieying' # 'tuliandi' # 'wangsuichun' # 'luoqiu' # 
+data_name = 'patient_name'
 
 # the directory that store implanting points
 ip_dir = cwd + '/data/' + data_name + '/implant_point'
