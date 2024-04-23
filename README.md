@@ -21,11 +21,13 @@ Fig.3 Comparison of the time consuming with different \(N_f\) in point cloud fil
 Fig. 4 (a-i) present the qualitative implantation planning results from 9 cases by our method. (j-m) respectively plot the original BIC of \(P_1\)-\(P_4\) in 18 cases between our planning results and those of manual planning.
 
 
+![Fig. 5 The qualitative results of the our planned paths and the manually planned paths on the 2D slices in 3 cases. Our paths typically fall on areas with higher grayscale values.](https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/effect.png)
+Fig. 5 The qualitative results of the our planned paths and the manually planned paths on the 2D slices in 3 cases. Our paths typically fall on areas with higher grayscale values.
 
 
-![Fig.5 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manual results by expert doctors with different \(\varepsilon_r\), where \(d_1\)-\(d_4\) denotes the distance from the implant paths \(P_1\)-\(P_4\) to either the infraorbital margin or the lower zygomatic bone edge. (b) The relative BIC of path 1 to path 4 planned by our method compared with the corresponding manual design, denoted as BIC1 to BIC4. (c) The relative overall BIC in the left or right zygomatic bone with different \(\varepsilon_r\).
+![Fig.6 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manual results by expert doctors with different \(\varepsilon_r\), where \(d_1\)-\(d_4\) denotes the distance from the implant paths \(P_1\)-\(P_4\) to either the infraorbital margin or the lower zygomatic bone edge. (b) The relative BIC of path 1 to path 4 planned by our method compared with the corresponding manual design, denoted as BIC1 to BIC4. (c) The relative overall BIC in the left or right zygomatic bone with different \(\varepsilon_r\).
 ](https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/d1-d4.png)
-Fig.5 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manual results by expert doctors with different \(\varepsilon_r\), where \(d_1\)-\(d_4\) denotes the distance from the implant paths \(P_1\)-\(P_4\) to either the infraorbital margin or the lower zygomatic bone edge. (b) The relative BIC of path 1 to path 4 planned by our method compared with the corresponding manual design, denoted as BIC1 to BIC4. (c) The relative overall BIC in the left or right zygomatic bone with different \(\varepsilon_r\).
+Fig.6 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manual results by expert doctors with different \(\varepsilon_r\), where \(d_1\)-\(d_4\) denotes the distance from the implant paths \(P_1\)-\(P_4\) to either the infraorbital margin or the lower zygomatic bone edge. (b) The relative BIC of path 1 to path 4 planned by our method compared with the corresponding manual design, denoted as BIC1 to BIC4. (c) The relative overall BIC in the left or right zygomatic bone with different \(\varepsilon_r\).
 
 
 
