@@ -34,7 +34,6 @@ Fig.6 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 # Config
 **The project can be reproduced on window 11 with the following commands:**
 
-，，，
 -- git clone  https://github.com/Haitao-Lee/auto_zygomatic_implantation.git
 
 -- conda create --name zygo_implant_planning python=3.9
@@ -58,11 +57,11 @@ Fig.6 (a) Comparison of \(d_1\) to \(d_4\) between our planning results and manu
 -- pip install random2
 
 -- pip install pandas
-，，，
+
 
 **Then open 'main.py', set the 'stl_folder' in function *zygomatic_implant_planning* to the directory that only contains the STL of the patient's skull. Set the 'point_folder' in function *zygomatic_implant_planning* to the directory that only contains the txt file that stores the implantation points. The txt file is written in the following format:**
 
-'''
+
 x1 y1 z1
 
 x2 y1 z2
@@ -70,11 +69,9 @@ x2 y1 z2
 x3 y3 z3
 
 x4 y4 z4
-'''
+
 
 # Citing
 If you use ZygoPlanner in your research, please consider giving proper attribution by citing the following publication:
 
-'''
 xxxxxxxxx
-'''
