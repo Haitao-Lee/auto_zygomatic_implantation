@@ -11,9 +11,7 @@ import visualization
 from vtkbool.vtkBool import vtkPolyDataBooleanFilter
 import data_input
 import copy
-import time
-import torch
-import sc2pcr
+import data_process
 
 
 
@@ -189,18 +187,18 @@ def crop_by_cylinder(stl1, cylinder, ref_point):
         clipper.GenerateClippedOutputOn()  # 生成被裁剪部分的输出
         clipper.Update()
         tmp_stl = clipper.GetOutput()
-    mapper1 = vtk.vtkPolyDataMapper()
-    mapper1.SetInputData(stl1)
-    actor1 = vtk.vtkActor()
-    actor1.SetMapper(mapper1)
-    actor1.GetProperty().SetColor(128/255,   174/255,   128/255)
-    renderer.AddActor(actor1)
-    render_window.AddRenderer(renderer)
-    # 设置相机位置
-    renderer.GetActiveCamera().Azimuth(30)
-    renderer.GetActiveCamera().Elevation(30)
-    renderer.SetBackground(1,1,1)
-    renderer.ResetCamera()
+    # mapper1 = vtk.vtkPolyDataMapper()
+    # mapper1.SetInputData(stl1)
+    # actor1 = vtk.vtkActor()
+    # actor1.SetMapper(mapper1)
+    # actor1.GetProperty().SetColor(128/255,   174/255,   128/255)
+    # renderer.AddActor(actor1)
+    # render_window.AddRenderer(renderer)
+    # # 设置相机位置
+    # renderer.GetActiveCamera().Azimuth(30)
+    # renderer.GetActiveCamera().Elevation(30)
+    # renderer.SetBackground(1,1,1)
+    # renderer.ResetCamera()
     # 显示窗口
     # render_window.Render()
     # rw_interactor.Start()
@@ -216,7 +214,8 @@ def transform_obb_box(center, normal, radius=screw_setting.crop_radius):
     return  polydata, cylinder_actor
 
 
-def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_setting.devide_eps):
+def regularize_info(implant_points, effect_pcds, ref_point, plane, eps=screw_setting.devide_eps):
+    normal = plane[1]
     directs = np.array(implant_points) - np.array(ref_point)
     res = np.dot(directs, -normal)
     # 使用argsort对数组进行排序，并输出排序后的索引
@@ -226,6 +225,8 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
     # visualization.points_visualization_by_vtk(effect_pcds[0:1],[new_ip_points[1]])
     # visualization.points_visualization_by_vtk(effect_pcds[0:1],[new_ip_points[2]])
     # visualization.points_visualization_by_vtk(effect_pcds[0:1],[new_ip_points[3]])
+    fossia_view_point = ref_point - (plane[0] - ref_point)*screw_setting.backlit_length/np.linalg.norm(plane[0] - ref_point)
+    fossia_points = [get_fossa_points(effect_pcds[1], fossia_view_point), get_fossa_points(effect_pcds[2], fossia_view_point)]
     num1 = np.sum(res>0)
     num2 = np.sum(res==0)
     num3 = new_ip_points.shape[0] - num1 - num2
@@ -236,7 +237,7 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
     info = []
     if num2 == 0:
         if num1 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
         elif num1 == 2:
             implant_center = np.sum(new_ip_points[0:num1], axis=0)/num1
             target_center = np.sum(effect_points[1], axis=0)/effect_points[1].shape[0]
@@ -247,11 +248,11 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[1] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
         if num3 == 1:
-            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2]]])
+            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2]], fossia_points[1]])
         elif num3 == 2:
             implant_center = np.sum(new_ip_points[num1+num2:], axis=0)/num3
             target_center = np.sum(effect_points[2], axis=0)/effect_points[2].shape[0]
@@ -262,21 +263,21 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[2] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
     elif num2 == 1:
         if num1 + num2 == 0:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1], effect_points[2]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1], effect_points[2]], fossia_points[1]])
             num1 = num2 = num3 = 0
         elif num1 + num3 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
-            info.append([new_ip_points[1], effect_points[0], [effect_points[2]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[2]], fossia_points[1]])
             num1 = num2 = num3 = 0
         elif num1 == 1 and num3 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
-            info.append([new_ip_points[2], effect_points[0], [effect_points[2]]])
-            info.append([new_ip_points[1], effect_points[0], [effect_points[1], effect_points[2]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
+            info.append([new_ip_points[2], effect_points[0], [effect_points[2]], fossia_points[1]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[1], effect_points[2]], np.concatenate([fossia_points[0], fossia_points[1]], axis=0)])
             num1 = num2 = num3 = 0
         elif num1 == 2:
             num2 = 0
@@ -285,7 +286,7 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             num2 = 0
             num1 = num1 + 1
         if num1 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
         elif num1 == 2:
             implant_center = np.sum(new_ip_points[0:num1], axis=0)/num1
             target_center = np.sum(effect_points[1], axis=0)/effect_points[1].shape[0]
@@ -296,11 +297,11 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[1] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
         if num3 == 1:
-            info.append([new_ip_points[num1+num2], effect_points[0], effect_points[2]])
+            info.append([new_ip_points[num1+num2], effect_points[0], effect_points[2], fossia_points[1]])
         elif num3 == 2:
             implant_center = np.sum(new_ip_points[num1+num2:], axis=0)/num3
             target_center = np.sum(effect_points[2], axis=0)/effect_points[2].shape[0]
@@ -311,18 +312,18 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[2] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
     elif num2 == 2:
         if num1 + num2 == 0:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
-            info.append([new_ip_points[1], effect_points[0], [effect_points[2]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[2]], fossia_points[1]])
             num1 = num2 = num3 = 0
         elif num1 + num3 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
-            info.append([new_ip_points[2], effect_points[0], [effect_points[2]]])
-            info.append([new_ip_points[1], effect_points[0], [effect_points[1], effect_points[2]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
+            info.append([new_ip_points[2], effect_points[0], [effect_points[2]], fossia_points[1]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[1], effect_points[2]], np.concatenate([fossia_points[0], fossia_points[1]], axis=0)])
             num1 = num2 = num3 = 0
         elif num1 == 1 and num3 == 1:
             num2 = 0
@@ -335,7 +336,7 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             num2 = 0
             num1 = num1 + 2
         if num1 == 1:
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1]], fossia_points[0]])
         elif num1 == 2:
             implant_center = np.sum(new_ip_points[0:num1], axis=0)/num1
             target_center = np.sum(effect_points[1], axis=0)/effect_points[1].shape[0]
@@ -346,11 +347,11 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[1] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[0], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]]])
+            info.append([new_ip_points[1], effect_points[0], [effect_points[1][indices]], fossia_points[0]])
         if num3 == 1:
-            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2]]])
+            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2]], fossia_points[1]])
         elif num3 == 2:
             implant_center = np.sum(new_ip_points[num1+num2:], axis=0)/num3
             target_center = np.sum(effect_points[2], axis=0)/effect_points[2].shape[0]
@@ -361,9 +362,9 @@ def regularize_info(implant_points, effect_pcds, ref_point, normal, eps=screw_se
             divide_normal = np.cross(np.cross(ref_dir, divide_dir), ref_dir)
             res = np.dot(effect_points[2] - target_center, divide_normal)
             indices = np.array(np.argwhere(res <= eps)).flatten()
-            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2+1], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
             indices = np.array(np.argwhere(res > eps)).flatten()
-            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]]])
+            info.append([new_ip_points[num1+num2], effect_points[0], [effect_points[2][indices]], fossia_points[1]])
     return info
 
 
@@ -761,7 +762,7 @@ def build_symmetrical_plane(stl, implant_ps):
     icp_result = o3d.pipelines.registration.registration_icp(
         source_cloud, 
         target_cloud,
-        max_correspondence_distance=50,  # 设置阈值以控制收敛
+        max_correspondence_distance=100,  # 设置阈值以控制收敛
         init=np.identity(4),
         estimation_method=o3d.pipelines.registration.TransformationEstimationPointToPoint(with_scaling=False),
         criteria=o3d.pipelines.registration.ICPConvergenceCriteria(relative_fitness=1e-2, relative_rmse=1e-2, max_iteration=1000)
@@ -929,7 +930,7 @@ def get_cone(dire, angle=screw_setting.cone_angle, r_resolution=screw_setting.r_
     return cone
 
 
-def get_backlit_points(points, view_point, degree = 1.5):
+def get_backlit_points(points, view_point, degree = 2.5):
     view_direc = points - view_point
     # 计算每个向量的模
     norms = np.linalg.norm(view_direc, axis=1)
@@ -966,16 +967,21 @@ def isInterference(point1, point2, point3, point4, eps=3):
     return False
 
 
-def genrate_optimal_paths(infos, radius=2, margin=3, length_interval=[33,55.5], BIC_margin = screw_setting.BIC_margin): # length_interval=[30,52.5]+3
+def get_fossa_points(zygo_pcd, view_point):
+    zygo_points = np.asarray(zygo_pcd.points)
+    return get_backlit_points(zygo_points, view_point, degree=0.1)
+
+def genrate_optimal_paths(infos, radius=2, margin=3, length_interval=[35.5,55.5], BIC_margin = screw_setting.BIC_margin): # length_interval=[30,52.5]+3
     optimal_paths = []
     whole_bone_pcd = []
-    pcds = []
+    # pcds = []
     for info in infos:
         implant_point = info[0]
         whole_bone_npy = info[1]
         whole_bone_pcd = o3d.geometry.PointCloud()
         whole_bone_pcd.points = o3d.utility.Vector3dVector(whole_bone_npy)
         zygomatic_bone_npys = info[2]
+        fossia_points = info[3]
         candidate_dirs = np.empty([1,3])
         for zygomatic_bone_npy in zygomatic_bone_npys:
             backlit_points = get_backlit_points(zygomatic_bone_npy, implant_point)
@@ -984,7 +990,29 @@ def genrate_optimal_paths(infos, radius=2, margin=3, length_interval=[33,55.5], 
             # pcd = o3d.geometry.PointCloud()
             # pcd.points = o3d.utility.Vector3dVector(backlit_points)
             # pcds.append(pcd)
-        # visualization.points_visualization_by_vtk(pcds+[whole_bone_pcd])
+        # visualization.points_visualization_by_vtk([whole_bone_pcd] + pcds)
+        # PCDs = [whole_bone_pcd] + pcds
+        # for i in range(0, len(PCDs)):
+        #     vtk_points = vtk.vtkPoints()
+        #     xyz = np.asarray(PCDs[i].points)
+        #     for j in range(0, xyz.shape[0]):
+        #         vtk_points.InsertNextPoint(xyz[j][0], xyz[j][1], xyz[j][2])
+
+        #     ply = vtk.vtkPolyData()
+        #     ply.SetPoints(vtk_points)
+        #     # ply.GetPointData().SetScalars([color[(3 * i) % len(color)],
+        #     #                               color[(3 * i + 1) % len(color)],
+        #     #                               color[(3 * i + 2) % len(color)]])
+            
+        #     sphere_source = vtk.vtkSphereSource()
+            
+        #     glyph = vtk.vtkGlyph3D()
+        #     glyph.SetSourceConnection(sphere_source.GetOutputPort())
+        #     glyph.SetInputData(ply)
+        #     glyph.ScalingOff()
+        #     glyph.Update()
+        #     data_process.save_polydata_to_stl(glyph.GetOutput(), f"C:/work_and_study/code/zygomatic implants/data/majun/implant_point/point{i}.stl")
+
         # 删除发生干涉的路径
         effect_candidate_dirs = copy.deepcopy(candidate_dirs)
         # start = time.time()
@@ -1004,14 +1032,22 @@ def genrate_optimal_paths(infos, radius=2, margin=3, length_interval=[33,55.5], 
                         break
         # end = time.time()
         # print(end - start)
-        # 计算每个向量的模并归一化
-        norms = np.linalg.norm(effect_candidate_dirs, axis=1) + 1e-3
+        norms = np.linalg.norm(effect_candidate_dirs, axis=1) + 1e-4
         short_indices = np.where(norms < length_interval[0])[0]
         long_indices = np.where(norms > length_interval[1])[0]
         effect_candidate_dirs[long_indices] = effect_candidate_dirs[long_indices]*length_interval[1]/norms[long_indices, np.newaxis]
-        effect_candidate_dirs = np.delete(effect_candidate_dirs,short_indices, axis=0)
+        effect_candidate_dirs = np.delete(effect_candidate_dirs, short_indices, axis=0)
         norms = np.linalg.norm(effect_candidate_dirs, axis=1) + 1e-4
-        # 归一化每个向量
+        normalized_candidate_dirs = effect_candidate_dirs / norms[:, np.newaxis]
+        fossia_dirs = fossia_points - implant_point
+        fossia_mtx = np.dot(normalized_candidate_dirs, fossia_dirs.T)
+        fossia_norms = np.linalg.norm(fossia_dirs, axis=1) + 1e-4
+        fossia_norms_mtx = np.repeat(np.reshape(fossia_norms, (1,-1)), effect_candidate_dirs.shape[0], axis=0)
+        foosia_dis_mtx = np.square(fossia_norms_mtx) - np.square(fossia_mtx)
+        fossia_idx_mtx = np.any(foosia_dis_mtx < (screw_setting.screw_radius + 0.1)**2, axis=1)
+        row_indices = np.where(fossia_idx_mtx)[0]
+        effect_candidate_dirs = np.delete(effect_candidate_dirs, row_indices, axis=0)
+        norms = np.linalg.norm(effect_candidate_dirs, axis=1) + 1e-4
         normalized_candidate_dirs = effect_candidate_dirs / norms[:, np.newaxis]
         bic_dirs = whole_bone_npy - implant_point
         bic_norms = np.reshape(np.linalg.norm(bic_dirs, axis=1), (1, -1))
