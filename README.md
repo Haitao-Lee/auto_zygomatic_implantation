@@ -78,7 +78,16 @@ x4 y4 z4
 # Citing
 If you use ZygoPlanner in your research, please consider giving proper attribution by citing the following publication:
 
-```
-xxxxxxxxx
-```
+@article{LI2024103401,
+title = {ZygoPlanner: A three-stage graphics-based framework for optimal preoperative planning of zygomatic implant placement},
+journal = {Medical Image Analysis},
+pages = {103401},
+year = {2024},
+issn = {1361-8415},
+doi = {https://doi.org/10.1016/j.media.2024.103401},
+url = {https://www.sciencedirect.com/science/article/pii/S1361841524003268},
+author = {Haitao Li and Xingqi Fan and Baoxin Tao and Wenying Wang and Yiqun Wu and Xiaojun Chen},
+keywords = {Preoperative planning, Zygomatic implant, Bone-to-implant contact},
+abstract = {Zygomatic implant surgery is an essential treatment option of oral rehabilitation for patients with severe maxillary defect, and preoperative planning is an important approach to enhance the surgical outcomes. However, the current planning still heavily relies on manual interventions, which is labor-intensive, experience-dependent, and poorly reproducible. Therefore, we propose ZygoPlanner, a pioneering efficient preoperative planning framework for zygomatic implantation, which may be the first solution that seamlessly involves the positioning zygomatic bones, the generation of alternative paths, and the computation of optimal implantation paths. To efficiently achieve robust planning, we developed a graphics-based interpretable method for zygomatic bone positioning leveraging the shape prior knowledge. Meanwhile, a surface-faithful point cloud filling algorithm that works for concave geometries was proposed to populate dense points within the zygomatic bones, facilitating generation of alternative paths. Finally, we innovatively realized a graphical representation of the medical bone-to-implant contact to obtain the optimal results under multiple constraints. Clinical experiments confirmed the superiority of our framework across different scenarios. The source code is available at https://github.com/Haitao-Lee/auto_zygomatic_implantation.}
+}
 
