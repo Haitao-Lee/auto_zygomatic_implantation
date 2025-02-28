@@ -84,8 +84,7 @@ If you use ZygoPlanner in your research, please consider giving proper attributi
   author={Haitao Li and Xingqi Fan and Baoxin Tao and Wenying Wang and Yiqun Wu and Xiaojun Chen},
   journal={Medical Image Analysis},
   pages={103401},
-  year={2024},
-  issn = {1361-8415}
+  year={2025},
 }
 ```
 
